@@ -1,0 +1,287 @@
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&display=swap");
+
+:root {
+  --fondo: #e8edf2;
+  --panel: #ffffff;
+  --tinta: #14212b;
+  --tinta-suave: #4b5d6b;
+  --linea: #c5d0da;
+  --acento: #0f6e8c;
+  --acento-oscuro: #0a566d;
+  --alerta: #b4370a;
+
+  --f-titulo: "Bricolage Grotesque", system-ui, sans-serif;
+  --f-cuerpo: "IBM Plex Sans", system-ui, sans-serif;
+  --f-numeros: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fondo: #0f1a22;
+    --panel: #172630;
+    --tinta: #e6edf2;
+    --tinta-suave: #9fb2bf;
+    --linea: #2c414f;
+    --acento: #4fb6d6;
+    --acento-oscuro: #7cc9e2;
+    --alerta: #ff9466;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--fondo);
+  color: var(--tinta);
+  font-family: var(--f-cuerpo);
+  line-height: 1.5;
+}
+
+.app {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 4rem;
+}
+
+/* Cabecera */
+.cabecera {
+  margin-bottom: 2rem;
+}
+
+.cabecera h1 {
+  margin: 0 0 0.5rem;
+  font-family: var(--f-titulo);
+  font-size: clamp(1.9rem, 4vw, 2.8rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.cabecera p {
+  max-width: 60ch;
+  margin: 0;
+  color: var(--tinta-suave);
+}
+
+/* Estructura */
+.contenido {
+  display: grid;
+  grid-template-columns: minmax(0, 320px) minmax(0, 1fr);
+  gap: 1.5rem;
+  align-items: start;
+}
+
+@media (max-width: 800px) {
+  .contenido {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--linea);
+  border-radius: 6px;
+  padding: 1.5rem;
+}
+
+.panel h2 {
+  margin: 0 0 1.25rem;
+  font-family: var(--f-titulo);
+  font-size: 1.25rem;
+}
+
+/* Formulario */
+.formulario {
+  display: grid;
+  gap: 1.1rem;
+}
+
+.formulario h2 {
+  margin-bottom: 0;
+}
+
+.formulario label {
+  display: grid;
+  gap: 0.25rem;
+  font-weight: 500;
+}
+
+.formulario small {
+  color: var(--tinta-suave);
+  font-weight: 400;
+}
+
+input {
+  width: 100%;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--linea);
+  border-radius: 4px;
+  background: transparent;
+  color: var(--tinta);
+  font: 400 1rem var(--f-numeros);
+}
+
+input:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--acento);
+  outline-offset: 2px;
+}
+
+button {
+  padding: 0.7rem 1rem;
+  border: 0;
+  border-radius: 4px;
+  background: var(--acento);
+  color: #fff;
+  font: 500 1rem var(--f-cuerpo);
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--acento-oscuro);
+}
+
+.mensaje-error {
+  margin: 0;
+  color: var(--alerta);
+  font-weight: 500;
+}
+
+/* Resultados */
+.vacio p {
+  margin: 0;
+  color: var(--tinta-suave);
+}
+
+.exacto {
+  display: grid;
+  gap: 0.15rem;
+  margin: 0 0 1.5rem;
+}
+
+.exacto span {
+  color: var(--tinta-suave);
+  font-size: 0.9rem;
+}
+
+.exacto strong {
+  font: 500 1.25rem var(--f-numeros);
+  overflow-wrap: anywhere;
+}
+
+.comparacion {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.tarjeta {
+  padding: 1.1rem;
+  border: 1px solid var(--linea);
+  border-top-width: 4px;
+  border-radius: 4px;
+}
+
+.tarjeta.directa {
+  border-top-color: var(--alerta);
+}
+
+.tarjeta.agrupada {
+  border-top-color: var(--acento);
+}
+
+.tarjeta h3 {
+  margin: 0;
+  font-family: var(--f-titulo);
+  font-size: 1.1rem;
+}
+
+.tarjeta .subtitulo {
+  margin: 0 0 1rem;
+  color: var(--tinta-suave);
+  font-size: 0.9rem;
+}
+
+.tarjeta dl {
+  display: grid;
+  gap: 0.1rem;
+  margin: 0;
+}
+
+.tarjeta dt {
+  margin-top: 0.6rem;
+  color: var(--tinta-suave);
+  font-size: 0.85rem;
+}
+
+.tarjeta dd {
+  margin: 0;
+  font-family: var(--f-numeros);
+  overflow-wrap: anywhere;
+}
+
+.tarjeta dd.valor {
+  font-size: 1rem;
+}
+
+.tarjeta dd.error {
+  font-size: 1.35rem;
+  font-weight: 500;
+}
+
+.tarjeta.directa dd.error {
+  color: var(--alerta);
+}
+
+.tarjeta.agrupada dd.error {
+  color: var(--acento-oscuro);
+}
+
+.veredicto {
+  margin: 1.25rem 0 2rem;
+  font: 600 1.15rem var(--f-titulo);
+}
+
+.titulo-tabla {
+  margin: 0 0 0.25rem;
+  font-family: var(--f-titulo);
+  font-size: 1.05rem;
+}
+
+.nota {
+  margin: 0 0 1rem;
+  color: var(--tinta-suave);
+  font-size: 0.9rem;
+}
+
+/* Tabla */
+.tabla-scroll {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--f-numeros);
+  font-size: 0.9rem;
+}
+
+th,
+td {
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid var(--linea);
+  text-align: right;
+  white-space: nowrap;
+}
+
+th:first-child,
+td:first-child {
+  text-align: left;
+}
+
+th {
+  color: var(--tinta-suave);
+  font: 500 0.9rem var(--f-cuerpo);
+}
