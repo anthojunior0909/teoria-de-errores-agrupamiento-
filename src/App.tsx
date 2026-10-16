@@ -7,7 +7,7 @@ import { sumaAgrupada, sumaDirecta, valorExacto } from "./utils/algorithms";
 import { calcularErrores, factorMejora } from "./utils/errorMetrics";
 
 const PARAMETROS_INICIALES: Parametros = {
-  base: 0,
+  base: 1,
   incremento: 0.1,
   iteraciones: 1_000_000,
   tamanoGrupo: 1000,
